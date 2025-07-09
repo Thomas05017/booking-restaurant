@@ -1,8 +1,9 @@
 package com.myrestaurant.booking.controller;
 
-import com.myrestaurant.booking.user.model.User;
-import com.myrestaurant.booking.user.repository.UserRepository;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import com.myrestaurant.booking.dto.UserDTO;
+import com.myrestaurant.booking.dto.UserCreateDTO;
+import com.myrestaurant.booking.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,22 +12,29 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+    private final UserService userService;
 
-    public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserDTO> getAllUsers() {
+        return userService.getAllUsers();
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+    public UserDTO createUser(@Valid @RequestBody UserCreateDTO createDTO) {
+        return userService.createUser(createDTO);
+    }
+
+    @GetMapping("/{id}")
+    public UserDTO getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
     }
 }

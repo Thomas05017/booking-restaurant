@@ -1,10 +1,9 @@
-package com.myrestaurant.booking.dto;
+package com.myrestaurant.booking.user.dto;
 
 public class UserDTO {
     private Long id;
     private String username;
 
-    // Costruttori
     public UserDTO() {}
 
     public UserDTO(Long id, String username) {
@@ -12,7 +11,6 @@ public class UserDTO {
         this.username = username;
     }
 
-    // Getter & Setter
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

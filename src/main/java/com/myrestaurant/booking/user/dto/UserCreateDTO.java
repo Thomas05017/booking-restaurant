@@ -1,4 +1,4 @@
-package com.myrestaurant.booking.dto;
+package com.myrestaurant.booking.user.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
@@ -17,7 +17,6 @@ public class UserCreateDTO {
         this.password = password;
     }
 
-    // Getter & Setter
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
 

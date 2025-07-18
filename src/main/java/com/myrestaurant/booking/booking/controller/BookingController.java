@@ -2,6 +2,7 @@ package com.myrestaurant.booking.booking.controller;
 
 import com.myrestaurant.booking.booking.model.Booking;
 import com.myrestaurant.booking.booking.repository.BookingRepository;
+import com.myrestaurant.booking.booking.dto.BookingDTO;
 import com.myrestaurant.booking.user.model.User;
 import com.myrestaurant.booking.user.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
@@ -26,11 +27,16 @@ public class BookingController {
     }
 
     @PostMapping
-    public Booking createBooking(@RequestParam Long userId,
-                                 @RequestBody Booking booking) {
-        User user = userRepository.findById(userId)
+    public Booking createBooking(@RequestBody BookingDTO request) {
+        User user = userRepository.findById(request.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
+
+        Booking booking = new Booking();
         booking.setUser(user);
+        booking.setDate(request.getDate());
+        booking.setTime(request.getTime());
+        booking.setNumberOfGuests(request.getNumberOfGuests());
+
         return bookingRepository.save(booking);
     }
 

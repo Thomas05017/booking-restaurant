@@ -1,4 +1,4 @@
-package com.myrestaurant.booking.security;
+package com.myrestaurant.booking.user.security;
 
 import com.myrestaurant.booking.user.model.User;
 import com.myrestaurant.booking.user.repository.UserRepository;

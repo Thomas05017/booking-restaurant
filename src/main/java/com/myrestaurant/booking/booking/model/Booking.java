@@ -23,7 +23,6 @@ public class Booking {
     @JsonBackReference
     private User user;
 
-    // Costruttori
     public Booking() {}
 
     public Booking(LocalDate date, LocalTime time, int numberOfGuests, User user) {
@@ -33,7 +32,6 @@ public class Booking {
         this.user = user;
     }
 
-    // Getter e Setter
     public Long getId() { return id; }
     public LocalDate getDate() { return date; }
     public void setDate(LocalDate date) { this.date = date; }

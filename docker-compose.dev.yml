@@ -3,7 +3,7 @@ version: "3.8"
 services:
   mysql:
     image: mysql:8.0
-    container_name: mysql_db
+    container_name: mysql_db_dev
     restart: always
     environment:
       MYSQL_DATABASE: ristorante_db
@@ -13,7 +13,13 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - db_data:/var/lib/mysql
+      - db_data_dev:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "user", "-puserpassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   app:
     image: maven:3.9.6-eclipse-temurin-17
@@ -25,11 +31,13 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/ristorante_db
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: userpassword
+    restart: on-failure
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -41,6 +49,9 @@ services:
       PMA_HOST: mysql
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: rootpassword
+    depends_on:
+      mysql:
+        condition: service_healthy
 
 volumes:
-  db_data:
+  db_data_dev:

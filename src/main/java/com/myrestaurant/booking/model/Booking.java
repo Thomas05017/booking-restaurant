@@ -1,4 +1,4 @@
-package com.myrestaurant.booking.booking.model;
+package com.myrestaurant.booking.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.myrestaurant.booking.user.model.User;

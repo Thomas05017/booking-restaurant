@@ -28,6 +28,11 @@ public class UserController {
         return userService.createUser(createDTO);
     }
 
+    @PostMapping("/register")
+    public UserDTO registerUser(@Valid @RequestBody UserRegistrationDTO registrationDTO) {
+        return userService.registerUser(registrationDTO);
+    }
+
     @GetMapping("/{id}")
     public UserDTO getUserById(@PathVariable Long id) {
         return userService.getUserById(id);

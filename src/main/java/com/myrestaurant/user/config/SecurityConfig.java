@@ -23,7 +23,10 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
-                .httpBasic(Customizer.withDefaults());
+                .httpBasic(Customizer.withDefaults())
+                .authorizeHttpRequests(auth -> auth
+                    .requestMatchers("/users/register", "/actuator/health").permitAll()
+                    .anyRequest().authenticated());
 
         return http.build();
     }

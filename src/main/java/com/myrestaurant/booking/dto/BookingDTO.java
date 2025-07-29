@@ -1,4 +1,4 @@
-package com.myrestaurant.booking.booking.dto;
+package com.myrestaurant.booking.dto;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -7,6 +7,16 @@ public class BookingDTO {
     private Long id;
     private LocalDate date;
     private LocalTime time;
+    private int numberOfGuests;
+    @NotNull
+    @FutureOrPresent
+    private LocalDate date;
+
+    @NotNull
+    private LocalTime time;
+
+    @Min(1)
+    @Max(20)
     private int numberOfGuests;
 
     private Long userId;

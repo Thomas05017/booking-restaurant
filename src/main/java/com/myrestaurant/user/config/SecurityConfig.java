@@ -1,4 +1,4 @@
-package com.myrestaurant.booking.user.config;
+package com.myrestaurant.user.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

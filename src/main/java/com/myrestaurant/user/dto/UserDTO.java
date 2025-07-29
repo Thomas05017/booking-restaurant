@@ -1,4 +1,4 @@
-package com.myrestaurant.booking.user.dto;
+package com.myrestaurant.user.dto;
 
 public class UserDTO {
     private Long id;

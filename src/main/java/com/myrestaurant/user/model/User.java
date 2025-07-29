@@ -1,8 +1,8 @@
-package com.myrestaurant.booking.user.model;
+package com.myrestaurant.user.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.myrestaurant.booking.booking.model.Booking;
+import com.myrestaurant.booking.model.Booking;
 import jakarta.persistence.*;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.myrestaurant.booking.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.myrestaurant.booking.user.model.User;
+import com.myrestaurant.user.model.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -41,4 +41,8 @@ public class Booking {
     public void setNumberOfGuests(int numberOfGuests) { this.numberOfGuests = numberOfGuests; }
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
+
+    public void setId(long l) {
+        this.id = l;
+    }
 }

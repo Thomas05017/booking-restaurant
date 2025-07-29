@@ -1,6 +1,6 @@
-package com.myrestaurant.booking.user.repository;
+package com.myrestaurant.user.repository;
 
-import com.myrestaurant.booking.user.model.User;
+import com.myrestaurant.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

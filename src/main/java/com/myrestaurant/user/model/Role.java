@@ -1,4 +1,4 @@
-package com.myrestaurant.booking.user.model;
+package com.myrestaurant.user.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

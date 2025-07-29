@@ -1,7 +1,7 @@
-package com.myrestaurant.booking.user.security;
+package com.myrestaurant.user.security;
 
-import com.myrestaurant.booking.user.model.User;
-import com.myrestaurant.booking.user.repository.UserRepository;
+import com.myrestaurant.user.model.User;
+import com.myrestaurant.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

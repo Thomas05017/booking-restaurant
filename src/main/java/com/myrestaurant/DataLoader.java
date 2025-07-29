@@ -1,9 +1,9 @@
-package com.myrestaurant.booking;
+package com.myrestaurant;
 
-import com.myrestaurant.booking.user.model.Role;
-import com.myrestaurant.booking.user.model.User;
-import com.myrestaurant.booking.user.repository.RoleRepository;
-import com.myrestaurant.booking.user.repository.UserRepository;
+import com.myrestaurant.user.model.Role;
+import com.myrestaurant.user.model.User;
+import com.myrestaurant.user.repository.RoleRepository;
+import com.myrestaurant.user.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

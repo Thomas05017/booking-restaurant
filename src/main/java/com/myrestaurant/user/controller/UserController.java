@@ -1,8 +1,9 @@
-package com.myrestaurant.booking.user.controller;
+package com.myrestaurant.user.controller;
 
-import com.myrestaurant.booking.user.dto.UserDTO;
-import com.myrestaurant.booking.user.dto.UserCreateDTO;
-import com.myrestaurant.booking.user.service.UserService;
+import com.myrestaurant.user.dto.UserDTO;
+import com.myrestaurant.user.dto.UserCreateDTO;
+import com.myrestaurant.user.dto.UserRegistrationDTO;
+import com.myrestaurant.user.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 

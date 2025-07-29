@@ -1,4 +1,4 @@
-package com.myrestaurant.booking.user.dto;
+package com.myrestaurant.user.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

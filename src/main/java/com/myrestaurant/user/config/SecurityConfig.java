@@ -22,11 +22,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
-                .httpBasic(Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/users/register", "/actuator/health").permitAll()
-                    .anyRequest().authenticated());
+                        .requestMatchers("/users/register", "/actuator/health").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
